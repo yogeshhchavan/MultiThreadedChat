@@ -70,6 +70,7 @@ Supports both:
 
 The application follows a **layered architecture**.
 
+
 User
 │
 ▼
@@ -91,6 +92,7 @@ TomatoApp (Facade)
 └── NotificationService
 
 
+
 ### Benefits
 
 - Separation of concerns  
@@ -101,6 +103,7 @@ TomatoApp (Facade)
 ---
 
 # 📂 Project Structure
+
 
 TOMATO/
 
