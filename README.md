@@ -1,148 +1,175 @@
-🚀 TomatoApp – Food Delivery System (C++)
+# 🚀 TomatoApp – Food Delivery System (C++)
 
 ![Language](https://img.shields.io/badge/Language-C++-blue)
+![Architecture](https://img.shields.io/badge/Architecture-Design%20Patterns-green)
+![Platform](https://img.shields.io/badge/Platform-Console-lightgrey)
 
-A C++ console-based food delivery system inspired by platforms like Zomato / Swiggy.
-This project demonstrates clean architecture and object-oriented design patterns including Factory, Strategy, Singleton, and Facade.
+---
 
-The system simulates the complete food ordering workflow from restaurant discovery to payment processing and order notification.
+## 📌 Overview
 
-✨ Features
-👤 User Management
+A **C++ console-based food delivery system** inspired by platforms like **Zomato** and **Swiggy**.
 
-Create and manage user profiles
+This project demonstrates **clean architecture and object-oriented design principles** using multiple design patterns:
 
-Maintain individual user carts
+- Factory Pattern
+- Strategy Pattern
+- Singleton Pattern
+- Facade Pattern
 
-🍽 Restaurant Search
+The application simulates a **complete food ordering workflow** including restaurant discovery, cart management, payment processing, and order notification.
 
-Search restaurants by location
+---
 
-Browse restaurant menus
+# ✨ Features
 
-🛒 Cart System
+## 👤 User Management
 
-Add menu items to cart
+- Create and manage user profiles
+- Maintain individual carts for each user
 
-View cart contents
+## 🍽 Restaurant Search
 
-Calculate order totals
+- Search restaurants by location
+- Browse restaurant menus
 
-📦 Order Types
+## 🛒 Cart System
 
-Immediate Orders
+- Add menu items to cart
+- View cart contents
+- Calculate order totals
 
-Scheduled Orders
+## 📦 Order Types
 
-💳 Payment Strategies
+- Immediate Orders
+- Scheduled Orders
+
+## 💳 Payment Strategies
 
 Supports multiple payment methods:
 
-UPI
+- UPI
+- Credit Card
 
-Credit Card
+Implemented using the **Strategy Pattern**.
 
-Implemented using the Strategy Pattern.
-
-🔔 Notifications
+## 🔔 Notification System
 
 Users receive notifications after successful order placement.
 
-🚚 Delivery Options
+## 🚚 Delivery Options
 
 Supports both:
 
-Delivery Orders
+- Delivery Orders
+- Pickup Orders
 
-Pickup Orders
+---
 
-🏗 System Architecture
+# 🏗 System Architecture
 
-The application follows layered architecture with design patterns.
+The application follows a **layered architecture**.
 
 User
-  │
-  ▼
+│
+▼
 TomatoApp (Facade)
-  │
-  ├── Managers
-  │     ├── RestaurantManager
-  │     └── OrderManager
-  │
-  ├── Factories
-  │     ├── NowOrderFactory
-  │     └── ScheduledOrderFactory
-  │
-  ├── Strategies
-  │     ├── UpiPaymentStrategy
-  │     └── CreditCardPaymentStrategy
-  │
-  └── Services
-        └── NotificationService
+│
+├── Managers
+│ ├── RestaurantManager
+│ └── OrderManager
+│
+├── Factories
+│ ├── NowOrderFactory
+│ └── ScheduledOrderFactory
+│
+├── Strategies
+│ ├── UpiPaymentStrategy
+│ └── CreditCardPaymentStrategy
+│
+└── Services
+└── NotificationService
 
-This architecture improves:
 
-Extensibility
-Separation of concerns
-Maintainability
+### Benefits
 
-📂 Project Structure
+- Separation of concerns  
+- Modular design  
+- Easy extensibility  
+- Maintainable architecture  
+
+---
+
+# 📂 Project Structure
 
 TOMATO/
+
+├── factories/
+│ ├── NowOrderFactory.h
+│ ├── OrderFactory.h
+│ └── ScheduledOrderFactory.h
 │
-├── factories/            # Factory pattern for order creation
-│   ├── NowOrderFactory.h
-│   ├── OrderFactory.h
-│   └── ScheduledOrderFactory.h
+├── managers/
+│ ├── OrderManager.h
+│ └── RestaurantManager.h
 │
-├── managers/             # Singleton managers
-│   ├── OrderManager.h
-│   └── RestaurantManager.h
+├── models/
+│ ├── Cart.h
+│ ├── DeliveryOrder.h
+│ ├── MenuItem.h
+│ ├── Order.h
+│ ├── PickupOrder.h
+│ ├── Restaurant.h
+│ └── User.h
 │
-├── models/               # Core domain models
-│   ├── Cart.h
-│   ├── DeliveryOrder.h
-│   ├── MenuItem.h
-│   ├── Order.h
-│   ├── PickupOrder.h
-│   ├── Restaurant.h
-│   └── User.h
+├── services/
+│ └── NotificationService.h
 │
-├── services/             # External services
-│   └── NotificationService.h
-│
-├── strategies/           # Strategy pattern for payment
-│   ├── CreditCardPaymentStrategy.h
-│   ├── PaymentStrategy.h
-│   └── UpiPaymentStrategy.h
+├── strategies/
+│ ├── CreditCardPaymentStrategy.h
+│ ├── PaymentStrategy.h
+│ └── UpiPaymentStrategy.h
 │
 └── utils/
-    └── TimeUtils.h
+└── TimeUtils.h
 
 
-⚙️ Installation & Setup
-Prerequisites
+---
 
-C++ Compiler (g++ or Visual Studio)
+# ⚙️ Installation
 
-Standard C++ libraries
+## Prerequisites
 
-🛠 Build Instructions
-Clone Repository
+- C++ Compiler (**g++ / Visual Studio**)
+- Standard C++ libraries
 
-git clone https://github.com/YOUR_USERNAME/TomatoApp.git
+---
+
+# 🛠 Build Instructions
+
+Clone the repository:
+git clone https://github.comyogeshhchavan/Food-tomatoApp.git
+
 cd TomatoApp
 
-Compile Project
+
+Compile the project:
+
+
 g++ main.cpp -o tomatoapp
 
-▶ Running the Application
+---
+
+# ▶ Running the Application
 ./tomatoapp
 
-The program simulates a food ordering workflow for a user.
 
-🧪 Example Output
-User: Adityais active. 
+The application simulates a **complete food ordering flow**.
+
+---
+
+# 🧪 Example Output
+ser: Adityais active. 
 Found Restaurant : 
  - Binker
 Selected Restauarant : Binker
@@ -167,37 +194,35 @@ Scheduled For: Sat Mar 14 00:03:11 2026
 Payment Done...!
 ________________________________________________________
 
-🧠 Design Patterns Used
-Pattern	Purpose
-Facade Pattern	TomatoApp provides a simplified interface
-Factory Pattern	Handles order creation
-Strategy Pattern	Payment method selection
-Singleton Pattern	Managers ensure single instance
+
+---
+
+# 🧠 Design Patterns Used
+
+| Pattern | Purpose |
+|-------|--------|
+| Facade Pattern | Simplifies system interaction |
+| Factory Pattern | Handles order creation |
+| Strategy Pattern | Payment method selection |
+| Singleton Pattern | Ensures single manager instance |
 
 These patterns improve:
 
-scalability
+- Scalability  
+- Maintainability  
+- Extensibility  
 
-maintainability
+---
 
-modular architecture
-
-🚀 Future Enhancements
+# 🚀 Future Enhancements
 
 Possible improvements:
 
-Add user authentication
+- User authentication system
+- Database integration
+- GUI-based interface
+- Real-time order tracking
+- Restaurant rating and review system
 
-Implement database persistence
+---
 
-Add GUI interface
-
-Real-time order tracking
-
-Restaurant ratings & reviews
-
-Microservice architecture version
-
-Separation of concerns
-
-Maintainability
